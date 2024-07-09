@@ -94,8 +94,8 @@ public class UserResourceJpa {
         }
 
         Post post = postRepository.findById(id).orElse(null);
-        if (post == null) {
-            throw new EntityNotFoundException("Post with id " + id + " not found.");
+        if (post == null || !post.getUser().getId().equals(userId)) {
+            throw new EntityNotFoundException("Post with id " + id + " not found for user with id " + userId);
         }
 
         EntityModel<Post> entityModel = EntityModel.of(post);
