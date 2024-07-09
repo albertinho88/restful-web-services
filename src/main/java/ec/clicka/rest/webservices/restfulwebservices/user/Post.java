@@ -2,6 +2,7 @@ package ec.clicka.rest.webservices.restfulwebservices.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.ToString;
 
@@ -14,6 +15,7 @@ public class Post {
     @GeneratedValue
     private Integer id;
 
+    @Size(min = 10)
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
