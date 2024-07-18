@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -32,6 +33,7 @@ public class User {
     private String name;
 
     @Past(message = "Birth Date should be in the past")
+    @NotNull(message = "Birth date is required")
 //    @JsonProperty("birth_date")
     private LocalDate birthDate;
 
